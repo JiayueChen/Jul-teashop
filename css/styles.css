@@ -1,0 +1,428 @@
+/*
+Table of content
+-----------------
+1) general styles
+2) navigation
+3) banner
+4) featured tea 
+5) menu
+6) locations
+7) footer
+8) our story page
+*/
+
+/* global settings */
+body {
+	background-color: #181818;
+	color: #fff;
+	font-family: 'Roboto Slab', serif;
+}
+
+button, a {
+	font-family: 'Arima Madurai', cursive;
+	font-size: 22px;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 72px;
+}
+
+h2 {
+	font-family: 'Pacifico', cursive;
+	font-size: 36px;
+	text-align: center;
+}
+
+h3 {
+	font-family: 'Arima Madurai', cursive;
+	font-size: 24px
+}
+
+h4 {
+	font-family: 'Arima Madurai', cursive;
+	font-size: 20px;
+}
+
+p {
+	font-family: 'Roboto Slab', serif;
+	font-size: 16px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+section {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	position: relative;
+}
+
+section h2 {
+	margin-bottom: 1em;
+}
+
+.navbar-brand {
+	font-family: 'Pacifico', cursive;
+	font-weight: bold;
+}
+
+/* navigation */
+header{
+	position: fixed;
+	width: 100%;
+	background-color: #000;
+	z-index: 100;
+}
+
+header .navbar-brand {
+	color: #cca2a2!important;
+	font-size: 22px;
+}
+
+header nav ul li a:hover, header nav ul li a:active {
+	color: #cca2a2!important;
+}
+
+/* banner */
+/* add banner background image and center text */
+main {
+	background-image: url(../images/tea-party.jpg);
+	background-color: #000;
+	background-size: cover;
+	text-align: center;
+	margin-bottom: 2em;
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+/* add roatate animation to banner title*/
+main h1 {
+	animation: rotate 2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-delay: 0.2s;
+	opacity: 0;
+}
+
+@keyframes rotate {
+	0% { 
+		opacity: 0;
+		transform: rotateY(320deg);
+	}
+	70% { 
+		opacity: 0.9;
+		transform: rotateY(-40deg);
+	}
+	100% {
+		opacity: 1;
+		transform: rotateY(0deg);
+	}
+}
+
+/* add styles to banner button */
+main a {
+	margin-top: 0.5em;
+	padding: 5px 10px;
+	text-decoration: none;
+	background-color: #cca2a2d1;
+	border: 2px solid #cca2a2;
+	border-radius: 10px;
+	color: #fff;
+}
+
+main a:link, main a:visited {
+	text-decoration: none;
+}
+
+main a:hover, main a:active {
+	text-decoration: none;
+	background-color: #ffffffd1;
+	color: #cca2a2;
+}
+
+/* featured tea */
+/* fix faked featured product position for fixed menu bar*/
+#featured-position {
+	position: absolute;
+	top: -5em;
+}
+
+/* add hover transition to featured procut title */
+#featured h2 {
+	transition: transform 1s;
+	transition-timing-function: ease;
+}
+
+#featured h2:hover {
+	transform: rotateY(360deg) scale(1.2);
+}
+
+#featured .tea {
+	margin-bottom: 2em;
+}
+
+/* vertical image title and position left*/
+#featured h4 {
+	writing-mode: vertical-rl;
+	margin: 0;
+	height: 100%;
+	background-color: #cca2a2d1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 12px 7.5px;
+	
+}
+
+/* menu */
+#menu-position {
+	position: absolute;
+	top: -5em;
+}
+
+#menu h2 {
+	transition: transform 1s;
+	transition-timing-function: ease;
+}
+
+#menu h2:hover {
+	transform: rotateY(360deg) scale(1.2);
+}
+
+#menu ul {
+	padding-left: 0;
+}
+
+#menu li {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	line-height: 2em;
+}
+
+#menu .menu {
+	padding: 2em;
+}
+
+.menu h3 {
+	margin-bottom: 1em
+}
+
+#menu .row {
+	position: relative;
+}
+
+/* on mobile screen, place image as background of menu item */
+#menu .img {
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* darken img to provide better contrast on mobile screen */
+#menu .img::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+/* place image on the right on desktop or tablet screen*/
+@media only screen and (min-width: 768px) {
+	#menu .row {
+		position: initial;
+	}
+	#menu .img {
+		position: relative;
+	}
+	#menu .img::before {
+		content: none;
+	}
+}
+
+/* locations */
+#location-position {
+	position: absolute;
+	top: -5em;
+}
+
+#location h2 {
+	transition: transform 1s;
+	transition-timing-function: ease;
+}
+
+#location h2:hover {
+	transform: rotateY(360deg) scale(1.2);
+}
+
+#location {
+	background-image: url(../images/tea.jpg);
+	background-color: #181818;
+	background-size: cover;
+	background-position: center;
+	padding-top: 2em;
+	padding-bottom: 3em;
+	margin-top: 4em;
+}
+
+#location .address {
+	background-color: #cca2a2d1;
+	padding: 2em;
+}
+
+#location .address:first-child {
+	margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+	#location .address:first-child {
+		border-right: 1px solid #fff;
+		margin-bottom: 0;
+	}
+}
+
+/* footer */
+footer {
+	text-align: center;
+	font-size: 18px;
+}
+
+footer nav li .navbar-brand {
+	font-size: 36px;
+}
+
+footer nav ul {
+	padding-left: 0;
+}
+
+footer nav li a{
+	list-style: none;
+	color: #fff;
+}
+
+footer a:link, footer a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover, footer a:active{
+	color: #cca2a2;
+	text-decoration: none;
+}
+
+/* out story page */
+/* banner */
+main.story {
+	height: 30vh;
+}
+
+main.story h1 {
+	font-size: 48px;
+}
+
+/* about content*/
+#story .about {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+/* adding slide in animation */
+#story .about h3 {
+	color: #cca2a2;
+	font-weight: bold;
+	animation: slidein 2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+	opacity: 0;
+}
+
+#story .about h3:first-child {
+	animation-delay: 0s;
+}
+
+@keyframes slidein {
+	0% { 
+		opacity: 0;
+		transform: translateX(20em);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+#story .about ul {
+	padding-left: 0
+}
+
+#story .about li {
+	list-style: none;
+}
+
+#story .about li span {
+	margin-right: 1em;
+	line-height: 2em;
+}
+
+#story .row {
+	position: relative;
+}
+
+#story .img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 100%;
+	overflow: hidden;
+}
+
+#story .img::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen and (max-width: 513px) {
+	#story .img img {
+		height: 100%;
+		max-width: fit-content;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#story .about {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#story .row {
+		position: initial;
+	}
+	#story .img {
+		position: relative;
+	}
+	#story .img::before {
+		content: none;
+	}
+}
